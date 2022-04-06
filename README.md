@@ -15,3 +15,4 @@
 - Crear una base de datos y asignar las credenciales de la misma en el archivo .env
 - Ejecutar en el CMD en la dirección del proyecto el siguiente comando "php artisan key:generate"
 - Ejecutar en el CMD en la dirección del proyecto el siguiente comando "php artisan jwt:secret"
+- Ejecutar en el CMD en la dirección del proyecto el siguiente comando "php artisan migrate"
