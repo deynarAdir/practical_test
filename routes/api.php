@@ -23,9 +23,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('register-user', [AuthController::class, 'userRegister']);
 
-// Rutas protegidas con TWT
-Route::get('get-posts', [PostController::class, 'get']);
-Route::post('store-post', [PostController::class, 'store']);
+Route::group(['prefix' => 'auth'], function ($router) {
 
-Route::get('get-videos', [VideoController::class, 'get']);
-Route::post('store-video', [VideoController::class, 'store']);
+    Route::post('login', [AuthController::class, 'login']);
+    Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('refresh', [AuthController::class, 'refresh']);
+    Route::post('me', [AuthController::class, 'me']);
+
+});
+
+// Rutas protegidas con TWT
+Route::group(['middleware' => ['jwt.auth']], function() {
+
+    Route::get('get-posts', [PostController::class, 'get']);
+    Route::post('store-post', [PostController::class, 'store']);
+    
+    Route::get('get-videos', [VideoController::class, 'get']);
+    Route::post('store-video', [VideoController::class, 'store']);
+
+});
