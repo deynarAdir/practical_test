@@ -21,7 +21,6 @@ class VideoController extends Controller
         $video = new Video;
         $video->vi_title = $request->title;
         $video->save();
-
         //recibimos los tags
         $tags = $request->tags;
         $tagIds = [];
