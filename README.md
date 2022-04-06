@@ -16,3 +16,9 @@
 - Ejecutar en el CMD en la dirección del proyecto el siguiente comando "php artisan key:generate"
 - Ejecutar en el CMD en la dirección del proyecto el siguiente comando "php artisan jwt:secret"
 - Ejecutar en el CMD en la dirección del proyecto el siguiente comando "php artisan migrate"
+
+## Instrucciones para el uso de las API`s
+
+- El campo C.I del registro de usuario, se toma como contraseña.
+- Las ruta login y de registro de usuario, son las unicas rutas que no necesitan adjuntar el los headers de la peticición la llave "Authorization".
+- Las rutas que si necesitan de autentificación, deben contener en los headers de la petición la llave "Authorization", con el valor de "Bearer " seguido del token generado al iniciar sesión.

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreVideoRequest;
 use App\Models\Tag;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class VideoController extends Controller
         ]);
     }
 
-    public function store(Request $request){
+    public function store(StoreVideoRequest $request){
         //creamos el video
         $video = new Video;
         $video->vi_title = $request->title;
